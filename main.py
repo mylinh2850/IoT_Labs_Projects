@@ -8,7 +8,7 @@ import random
 
 AIO_FEED_IDs = ["nutnhan1", "nutnhan2"]
 AIO_USERNAME = "mylinh2850"
-AIO_KEY = "aio_RzLU10E01Gb7aDHG6TI3dNxyEbx6"
+AIO_KEY = "aio_uyLD359L98C0Qyv7yVLysvpkIvqZ"
 
 def connected(client):
     print("Ket noi thanh cong ...")
@@ -26,14 +26,14 @@ def message(client , feed_id , payload):
     print("Nhan du lieu: " + payload + ", feed id: " + feed_id)
     if feed_id == "nutnhan1":
         if payload == "0":
-            writeData("Button1_OFF\n")
+            writeData("LED_OFF\n")
         else:
-            writeData("Button1_ON\n")
+            writeData("LED_ON\n")
     if feed_id == "nutnhan2":
         if payload == "0":
-            writeData("Button2_OFF\n")
+            writeData("PUMP_OFF\n")
         else:
-            writeData("Button2_ON\n") 
+            writeData("PUMP_ON\n") 
 
 client = MQTTClient(AIO_USERNAME , AIO_KEY)
 client.on_connect = connected
